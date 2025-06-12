@@ -1,0 +1,12 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+
+    printf("\n Your Name : Krish");
+    printf("\t Your Age : 19");
+    printf("\t Your city: Rajkot");
+    
+    
+    getch();
+}
