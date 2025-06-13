@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    
+    float PI = 3.14,ans,r=10;
+    
+    ans = PI*r*r;
+    
+    printf("Area of Circle is %f ",ans);
+  
+    
+    getch();
+}    
