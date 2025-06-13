@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+        
+     printf("\n Details:");
+    
+     printf("\n Krish: \t Flutter");
+     printf("\n prince: \t Flutter");
+     printf("\n Tax: \t Python");
+     printf("\n yas : \t Python");
+    
+    
+    
+    getch();
+}    
