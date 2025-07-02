@@ -1,0 +1,27 @@
+MWF[11:00 to 12:00]
+TTS[10:30 to 11:30]
+
+Matrix Multiplication
+Call by value
+Call by refrence
+
+Task:
+pass two value from main method to function and multiply that
+after multiplication print the answer in function 
+as well as main method
+
+1 2 3
+4 5 6
+7 8 9
+
+2 5 7 
+7 6 5
+4 8 2
+
+[(1*2)+(2*7)+(3*4)][(1*5)+(2*6)+(3*8)][(1*7)+(2*5)+(3*2)]
+[(4*2)+(5*7)+(6*4)][(4*5)+(5*6)+(6*8)][(4*7)+(5*5)+(6*2)]
+[(7*2)+(8*7)+(9*4)][(7*5)+(8*6)+(9*8)][(7*7)+(8*5)+(9*2)]
+
+28  41  23
+67  98  65
+106 155 107
