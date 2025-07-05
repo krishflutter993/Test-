@@ -1,0 +1,22 @@
+C Language Questions
+
+1. What is the size of a float in C?
+2.  Which operator is used to compare equality in C?
+A) = B) == C) != D) :=
+3. What will be the output of: printf("%d", 6 % 4);
+4. What is the default value of an uninitialized local variable in C?
+5. Which keyword is used to define a constant in C?
+6. Write one-line syntax of a for loop in C.
+7.  Which of the following is a logical AND operator?
+A) & B) && C) | D) ||
+8.  What will this code print?
+int x = 10;  
+if (x > 5) printf("A"); else printf("B");
+9. Which loop is guaranteed to execute at least once?
+10.  What does the break statement do inside a loop?
+11.  What is the return type of main() function in standard C?
+12.  Can a function return more than one value? (Yes/No)
+13.  Write the syntax to declare an array of 5 integers.
+14.  What is the index of the last element in int arr[5];?
+15.  Can we use a loop inside a function? (Yes/No)
+
