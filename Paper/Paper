@@ -1,4 +1,4 @@
-C Language Questions
+²C Language Questions
 
 1. What is the size of a float in C?
 ->4byte
@@ -16,13 +16,20 @@ A) & B) && C) | D) ||
 ->B)&&
 8.  What will this code print?
 int x = 10;  
-
 if (x > 5) printf("A"); else printf("B");
+-> A
 9. Which loop is guaranteed to execute at least once?
+-> do-while loo
 10.  What does the break statement do inside a loop?
+->exti tha Loop imidentli 
 11.  What is the return type of main() function in standard C?
+->int
 12.  Can a function return more than one value? (Yes/No)
+-> no
 13.  Write the syntax to declare an array of 5 integers.
+->int arry[5];
 14.  What is the index of the last element in int arr[5];?
+->4
 15.  Can we use a loop inside a function? (Yes/No)
+->yas
 
