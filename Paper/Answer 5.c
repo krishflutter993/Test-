@@ -11,12 +11,7 @@ void main()
     scanf("%d", &num);
 
     
-    if (num < 0) 
-    {
-        printf("\n Factorial of negative number is not possible");
-    }
-    else 
-    {
+
         while(i <= num)
         {
             fac = fac * i;
