@@ -6,7 +6,7 @@ int main()
     int fac = 1;
 
     printf("\n Enter any number");
-    scanf("\n %d ", &num);
+    scanf("\n %d", &num);
 
     while (i <= num)
     {
