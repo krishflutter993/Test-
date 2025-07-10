@@ -1,0 +1,32 @@
+Data type:
+
+int
+float
+character
+double
+
+Conditionbal Statement:
+Conditions:
+if-else
+
+if(condition)
+{
+}
+else
+{
+}
+
+a=b//value assign
+a==b//
+
+else if
+
+1)if
+2)else
+3)else-if
+4)switch-case-break
+
+
+
+
+

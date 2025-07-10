@@ -1,0 +1,30 @@
+Software:
+
+1) Turbo C++
+2) Dev C++
+3) Vs Code
+4) Github Desktop Software
+5) Git CMD
+
+
+Every Program's execution will start from main method.
+
+Data type:
+1) integer - int - numeric value - %d
+2) float   - float - decimal value[4 byte] - %f
+3) character - char - single character - %c
+4) double - double - decimal value[8 byte] - %lf
+
+
+Variable Declaration:
+
+Syntax:
+datatype variable_name;
+int a;
+float b;
+
+Operator:
+1)Arithmetic Operator:
++,-,*,/,%
+
+

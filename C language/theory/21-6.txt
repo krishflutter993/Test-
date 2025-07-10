@@ -1,0 +1,41 @@
+Loop:Multiple Time
+
+1) Entry Control Loop:
+
+  a)for:
+     for(initialization;condition;incre/decre)
+     {
+
+     }
+  b)while:
+	initialization;
+	
+	while(condition)
+	{
+		incre/decre;
+	}
+
+2) Exit Control Loop:
+
+  a)do-while:
+  
+	initialization;
+
+       do
+	{
+		statement;
+	}
+	while(condition);
+-----------------------------------------------------
+
+int num = 1234;//123//12//1//0
+int sum=0//4;
+
+while(num>0)
+{
+	int rem = num%10;//4//3//2//1
+	sum+=rem;//4+3=7+2=9+1=10
+	num=num/10;//	
+}
+
+printf(sum);	

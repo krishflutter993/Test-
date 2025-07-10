@@ -1,0 +1,9 @@
+Array : Collection of Elements
+->array's index will start with 0.
+[]
+
+int marks[5];
+
+Types of Array
+1) Single Dimensional Array
+2) Multi Dimensional Array

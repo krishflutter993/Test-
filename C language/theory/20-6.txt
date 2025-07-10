@@ -1,0 +1,32 @@
+conditional statements:
+1) if-else
+2) else if
+3) switch-case-break
+4) Nested If
+
+Example Formula based
+
+1) Area of Circle : PI*r*r
+
+2) Area of Traingle : 0.5*a*b
+
+3) Simple Intrest : I=P*R*N/100
+
+Operator 
+1) Arithmetic OP : +,-,*,/,%
+2) Assignment OP : =
+3) Logical OP : &&,||,!
+4) Shorthand OP:+=,-=,*=,/=
+5) Relational OP:<,>,<=,>=,==,!=
+
+c+=a // c=c+a
+
+b-=c // b=b-c
+
+
+c=a+b
+a=a+b
+
+
+
+

@@ -1,0 +1,16 @@
+Functions:code - reuse
+
+1)Inbuilt Function:
+string functions
+math functions
+
+2)User defined Function:
+1)with para with return type
+2)with para without return type
+3)without para with return type
+4)without para without return type
+
+
+
+
+
