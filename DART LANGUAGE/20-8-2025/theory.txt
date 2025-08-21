@@ -1,0 +1,17 @@
+-> Flutter is a Framework Which will be used to develop
+   Mobile Applications.
+
+-> using Flutter you can also create websites and desktop software
+
+-> we are using Android Studio/VScode for flutter development
+
+-> Comment
+1)single line comment -> //
+2)multi line comment -> ctrl+/
+
+-> Dart is similar to Java
+
+
+
+
+
