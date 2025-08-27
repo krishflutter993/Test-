@@ -1,0 +1,65 @@
+1. sum of all digits:
+import 'dart:io';
+
+void main()
+{
+    var sum =0;
+    
+    print("Enter Any Number");
+    var num = int.parse(stdin.readLineSync().toString());//1234//123
+
+    while(num > 0)
+    {
+        int rem = num % 10;//4//3//2//1
+        sum+=rem;//0+4//4+3//7+2//9+1=10
+        num=num ~/ 10;//123//12//1//0
+        
+    }
+    print("Sum of all digits are: $sum");
+    
+    
+}
+
+2. max num[Biggest Digit]:
+import 'dart:io';
+
+void main()
+{
+    var max =0;//4//7
+    
+    print("Enter Any Number");
+    var num = int.parse(stdin.readLineSync().toString());//1274
+
+    while(num > 0)
+    {
+        int rem = num % 10;//4//7//2//1
+        if(rem>max)
+        {
+           max = rem; //4//7
+        }
+        num=num ~/ 10;//127//0
+        
+    }
+    print("Biggest digit is: $max");
+    
+    
+}
+3.
+import 'dart:io';
+
+void main()
+{
+  
+    int i;
+    print("Enter Any Number");
+    var num = int.parse(stdin.readLineSync().toString());
+    
+    for(i=1;i<=10;i++)
+    {
+        var ans = num*i;
+        print("$num * $i = $ans");
+    }
+
+   
+    
+}
