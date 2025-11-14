@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 14, 2025 at 09:00 AM
+-- Generation Time: Nov 14, 2025 at 10:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -24,20 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `krish`
+-- Table structure for table `krish_user`
 --
 
-CREATE TABLE `krish` (
+CREATE TABLE `krish_user` (
   `id` int(11) NOT NULL,
   `First_name` varchar(100) NOT NULL,
   `Last_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `krish`
+-- Dumping data for table `krish_user`
 --
 
-INSERT INTO `krish` (`id`, `First_name`, `Last_name`) VALUES
+INSERT INTO `krish_user` (`id`, `First_name`, `Last_name`) VALUES
 (1, 'a', 'b'),
 (2, 'q', 'w'),
 (3, 'a', 'b'),
@@ -51,9 +51,9 @@ INSERT INTO `krish` (`id`, `First_name`, `Last_name`) VALUES
 --
 
 --
--- Indexes for table `krish`
+-- Indexes for table `krish_user`
 --
-ALTER TABLE `krish`
+ALTER TABLE `krish_user`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -61,9 +61,9 @@ ALTER TABLE `krish`
 --
 
 --
--- AUTO_INCREMENT for table `krish`
+-- AUTO_INCREMENT for table `krish_user`
 --
-ALTER TABLE `krish`
+ALTER TABLE `krish_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
