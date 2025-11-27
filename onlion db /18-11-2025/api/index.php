@@ -8,5 +8,6 @@ echo "<li><a href='krish/update.php'>Update</a></li>";
 echo "<li><a href='krish/delete.php'>Delete</a></li>";
 echo "<li><a href='krish/insert.php'>Insert</a></li>";
 echo "<li><a href='krish/signin.php'>Signin</a></li>";
+echo "<li><a href='krish/signinview.php'>SigninView</a></li>";
 echo "</ul>";
 ?>

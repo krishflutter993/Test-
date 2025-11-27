@@ -12,6 +12,8 @@
           $row["id"] = $data["id"];
           $row["name"] = $data["name"];
           $row["email"] = $data["email"];
+        $row["password"] = $data["password"];
+        $row["mobile"] = $data["mobile"];
         
 
         array_push($response,$row);
