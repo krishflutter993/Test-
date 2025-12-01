@@ -14,7 +14,7 @@ $p_price = $_POST['p_price'];
 $p_des   = $_POST['p_des'];
 
 // File information
-$fileinfo = pathinfo($_FILES["p_img"]["name"]);
+$fileinfo = pathinfo($_FILES["p_img"]["p_name"]);
 
 // File extension
 $extension = $fileinfo["extension"];
