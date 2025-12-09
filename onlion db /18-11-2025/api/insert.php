@@ -6,7 +6,7 @@ include('connect.php');
 $upload_path = 'images/';
 
 // Generate upload URL
-$upload_url = 'https://' . $_SERVER['SERVER_NAME'] . "/api/" . $upload_path;
+$upload_url = 'https://' . $_SERVER['SERVER_NAME'] . "/krish/" . $upload_path;
 
 // Request fields
 $p_name  = $_POST['p_name'];
