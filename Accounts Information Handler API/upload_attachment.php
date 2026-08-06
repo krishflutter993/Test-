@@ -1,194 +1,75 @@
 <?php
 
-header("Content-Type: application/json");
+// importing db connection
+include 'connect.php';
 
-include "connect.php";
+// upload folder
+$upload_path = 'uploads/';
 
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
+// upload url
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+$upload_url = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']) . '/uploads/';
 
-    echo json_encode([
-        "status"=>false,
-        "message"=>"Only POST Request Allowed"
-    ]);
+// getting data from request
+$firebase_uid = $_REQUEST['firebase_uid'];
+$item_id = $_REQUEST['item_id'];
 
-    exit;
-}
+// getting file info
+$fileinfo = pathinfo($_FILES["file"]["name"]);
 
-if(!isset($_POST["firebase_uid"])){
+// getting extension
+$extension = $fileinfo["extension"];
 
-    echo json_encode([
-        "status"=>false,
-        "message"=>"Firebase UID Required"
-    ]);
+// random file name
+$random = 'file_' . rand(1000,9999);
 
-    exit;
-}
+// original file name
+$original_name = $_FILES["file"]["name"];
 
-if(!isset($_POST["item_id"])){
+// file size
+$file_size = $_FILES["file"]["size"];
 
-    echo json_encode([
-        "status"=>false,
-        "message"=>"Item ID Required"
-    ]);
+// file name to save
+$file_name = $random . '.' . $extension;
 
-    exit;
-}
+// file url
+$file_url = $upload_url . $file_name;
 
-if(!isset($_FILES["file"])){
+// file path
+$file_path = $upload_path . $file_name;
 
-    echo json_encode([
-        "status"=>false,
-        "message"=>"File Required"
-    ]);
+// upload file
+move_uploaded_file($_FILES["file"]["tmp_name"], $file_path);
 
-    exit;
-}
-
-$firebase_uid=trim($_POST["firebase_uid"]);
-
-$item_id=trim($_POST["item_id"]);
-
-$file=$_FILES["file"];
-
-$allowedExtensions=[
-"jpg",
-"jpeg",
-"png",
-"gif",
-"webp",
-"pdf",
-"doc",
-"docx",
-"xls",
-"xlsx",
-"ppt",
-"pptx",
-"txt",
-"zip"
-];
-
-$extension=strtolower(pathinfo($file["name"],PATHINFO_EXTENSION));
-
-if(!in_array($extension,$allowedExtensions)){
-
-    echo json_encode([
-        "status"=>false,
-        "message"=>"File Type Not Allowed"
-    ]);
-
-    exit;
-}
-
-$maxSize=20*1024*1024;
-
-if($file["size"]>$maxSize){
-
-    echo json_encode([
-        "status"=>false,
-        "message"=>"Maximum File Size is 20MB"
-    ]);
-
-    exit;
-}
-
-$uploadDir="uploads/";
-
-if(!is_dir($uploadDir)){
-
-    mkdir($uploadDir,0775,true);
-}
-
-$newFileName=uniqid()."_".time().".".$extension;
-
-$target=$uploadDir.$newFileName;
-
-if(!move_uploaded_file($file["tmp_name"],$target)){
-
-    echo json_encode([
-        "status"=>false,
-        "message"=>"Upload Failed"
-    ]);
-
-    exit;
-}
-
-$fileType=$extension;
-
-$stmt=$conn->prepare("
-
-INSERT INTO krish_attachments
-
-(firebase_uid,item_id,original_name,file_name,file_type,file_size)
-
+// insert into your SQL table
+$sql = "INSERT INTO krish_attachments
+(firebase_uid, item_id, original_name, file_name, file_type, file_size)
 VALUES
+(
+'$firebase_uid',
+'$item_id',
+'$original_name',
+'$file_name',
+'$extension',
+'$file_size'
+)";
 
-(?,?,?,?,?,?)
+$ex = mysqli_query($con, $sql);
 
-");
-
-$stmt->bind_param(
-
-"sssssi",
-
-$firebase_uid,
-
-$item_id,
-
-$file["name"],
-
-$newFileName,
-
-$fileType,
-
-$file["size"]
-
-);
-
-if($stmt->execute()){
-
+if ($ex) {
     echo json_encode([
-
-        "status"=>true,
-
-        "message"=>"Attachment Uploaded Successfully",
-
-        "data"=>[
-
-            "id"=>$conn->insert_id,
-
-            "file_name"=>$newFileName,
-
-            "original_name"=>$file["name"],
-
-            "file_type"=>$fileType,
-
-            "file_size"=>$file["size"],
-
-            "file_url"=>"https://prakrutitech.xyz/krish/uploads/".$newFileName
-
-        ]
-
+        "status" => true,
+        "message" => "File Uploaded Successfully",
+        "file_url" => $file_url
     ]);
-
-}else{
-
-    if(file_exists($target)){
-
-        unlink($target);
-
-    }
-
+} else {
     echo json_encode([
-
-        "status"=>false,
-
-        "message"=>"Database Error"
-
+        "status" => false,
+        "message" => mysqli_error($con)
     ]);
 }
 
-$stmt->close();
-
-$conn->close();
+// closing connection
+mysqli_close($con);
 
 ?>

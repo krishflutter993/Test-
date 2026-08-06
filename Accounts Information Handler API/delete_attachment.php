@@ -1,100 +1,38 @@
 <?php
 
-header("Content-Type: application/json");
+include 'connect.php';
 
-include "connect.php";
+$id = $_POST['id'];
 
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
+$sql = "SELECT * FROM krish_attachments WHERE id='$id'";
+$result = mysqli_query($con, $sql);
 
-    echo json_encode([
-        "status" => false,
-        "message" => "Only POST Request Allowed"
-    ]);
+if(mysqli_num_rows($result)>0){
 
-    exit;
-}
+    $row = mysqli_fetch_assoc($result);
 
-if (!isset($_POST["attachment_id"]) || empty($_POST["attachment_id"])) {
+    $file = "uploads/" . $row['file_name'];
 
-    echo json_encode([
-        "status" => false,
-        "message" => "Attachment ID Required"
-    ]);
+    if(file_exists($file)){
+        unlink($file);
+    }
 
-    exit;
-}
-
-if (!isset($_POST["firebase_uid"]) || empty($_POST["firebase_uid"])) {
+    mysqli_query($con,"DELETE FROM krish_attachments WHERE id='$id'");
 
     echo json_encode([
-        "status" => false,
-        "message" => "Firebase UID Required"
+        "status"=>true,
+        "message"=>"Attachment Deleted Successfully"
     ]);
 
-    exit;
-}
-
-$attachment_id = intval($_POST["attachment_id"]);
-$firebase_uid = trim($_POST["firebase_uid"]);
-
-// Check attachment belongs to this user
-$stmt = $conn->prepare("
-SELECT file_name
-FROM krish_attachments
-WHERE id = ?
-AND firebase_uid = ?
-");
-
-$stmt->bind_param("is", $attachment_id, $firebase_uid);
-
-$stmt->execute();
-
-$result = $stmt->get_result();
-
-if ($result->num_rows == 0) {
+}else{
 
     echo json_encode([
-        "status" => false,
-        "message" => "Attachment Not Found"
+        "status"=>false,
+        "message"=>"Attachment Not Found"
     ]);
 
-    exit;
 }
 
-$row = $result->fetch_assoc();
-
-$file = "uploads/" . $row["file_name"];
-
-// Delete file from uploads folder
-if (file_exists($file)) {
-    unlink($file);
-}
-
-// Delete database record
-$stmt = $conn->prepare("
-DELETE FROM krish_attachments
-WHERE id = ?
-AND firebase_uid = ?
-");
-
-$stmt->bind_param("is", $attachment_id, $firebase_uid);
-
-if ($stmt->execute()) {
-
-    echo json_encode([
-        "status" => true,
-        "message" => "Attachment Deleted Successfully"
-    ]);
-
-} else {
-
-    echo json_encode([
-        "status" => false,
-        "message" => "Delete Failed"
-    ]);
-}
-
-$stmt->close();
-$conn->close();
+mysqli_close($con);
 
 ?>
